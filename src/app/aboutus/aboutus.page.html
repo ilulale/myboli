@@ -1,0 +1,48 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title color='light'>aboutus</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content>
+  <ion-card>
+    <ion-card-header>
+      <img src="../../assets/Bakshi_mam.jpeg" alt="">
+      <ion-card-title>{{aboutus.name}}</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <div class="contents" [innerHTML]='aboutus.body'></div>
+      <div class="slogans" [innerHTML]='aboutus.slogan'></div>
+    </ion-card-content>
+  </ion-card>
+  <ion-toolbar class="stickend" color='light'>
+
+    <ion-buttons slot="start">
+      <ion-button [routerLink]="['/home']">
+  
+        <div class="stcak"> 
+          <ion-icon name="home"></ion-icon>
+          <ion-label>Home</ion-label>     
+        </div>
+  
+      </ion-button>
+
+    </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-button [routerLink]="['/favorite']">
+        <div class="stcak"> 
+          <ion-icon name="bookmarks"></ion-icon>
+          <ion-label>Favorites</ion-label>     
+        </div>
+      </ion-button>
+    </ion-buttons>
+  
+      <ion-title>
+        <div class="stcak">
+          <ion-label>About Us</ion-label>
+      </div>
+      </ion-title>
+  
+  </ion-toolbar>
+</ion-content>

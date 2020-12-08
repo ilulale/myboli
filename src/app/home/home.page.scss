@@ -25,3 +25,43 @@
 #container a {
   text-decoration: none;
 }
+
+.stickend{
+  position: fixed;
+  bottom: 0%;
+  z-index: 999;
+  padding-bottom: 5px;
+}
+
+.stcak{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+ion-card-title{
+  font-weight: 700;
+}
+
+app-expandable{
+  ion-card{
+    padding: 15px;
+  }
+}
+
+ion-card-content{
+  background-color:#d8b5d4;
+}
+
+ion-header{
+
+ion-title {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 0 90px 1px;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+}
+}

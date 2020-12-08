@@ -1,0 +1,23 @@
+.stickend{
+  position: fixed;
+  bottom: 0%;
+  z-index: 999;
+  padding-bottom: 5px;
+}
+  
+  .stcak{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .contents{
+    margin-top: 15px;
+  }
+
+  .slogans{
+    font-weight: 700;
+  }
+
+  ion-card{
+    margin-bottom: 80px;
+  }

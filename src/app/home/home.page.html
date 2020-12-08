@@ -1,20 +1,169 @@
-<ion-header [translucent]="true">
+
+<ion-header>
   <ion-toolbar>
-    <ion-title>
-      Blank
+    <ion-title color='light'>
+      MyBoli
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <ion-card (click)="expandItem(item)" *ngFor="let item of items">
+    <ion-card-header>
+      <ion-card-title>{{ item.title }} </ion-card-title>
+    </ion-card-header>
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
+    <ion-card-content>
+      <app-expandable expandHeight="100000px" [expanded]="item.expanded">
+        <div *ngIf="item.title=='निबंध'">
+          <ion-card *ngFor='let essay of essays' [routerLink]="['./',essay.id]">
+            <ion-card-title>{{essay.title}}</ion-card-title>
+            <ion-card-subtitle>{{essay.type}}</ion-card-subtitle>
+
+          </ion-card>
+        </div>
+        <div *ngIf="item.title=='कथा लेखन '">
+          <ion-card *ngFor='let story of stories' [routerLink]="['./',story.id]">
+            <ion-card-title>{{story.title}}</ion-card-title>
+            <ion-card-subtitle>{{story.type}}</ion-card-subtitle>
+           </ion-card>
+          
+          <!-- <ion-item *ngFor='let story of stories' [routerLink]="['./',story.id]">
+            <ion-label>
+              <h2>{{ story.title }}</h2>
+              <p>{{ story.type }}</p>
+            </ion-label>
+          </ion-item> -->
+        </div>
+        <div *ngIf="item.title=='पत्रलेखन'">
+          <ion-card *ngFor='let letter of letters' [routerLink]="['./',letter.id]">
+            <ion-card-title>{{letter.title}}</ion-card-title>
+            <ion-card-subtitle>{{letter.type}}</ion-card-subtitle>
+          </ion-card>
+          <!-- <ion-item *ngFor='let letter of letters' [routerLink]="['./',letter.id]"> -->
+            <!-- <ion-label>
+              <h2>{{ letter.title }}</h2>
+              <p>{{ letter.type }}</p>
+            </ion-label>
+          </ion-item> -->
+        </div>
+        <div *ngIf="item.title=='प्रसंग'">
+          <ion-card *ngFor='let prasang of prasangs' [routerLink]="['./',prasang.id]">
+            <ion-card-title>{{prasang.title}}</ion-card-title>
+            <ion-card-subtitle>{{prasang.type}}</ion-card-subtitle>
+          </ion-card>
+          <!-- <ion-item *ngFor='let prasang of prasangs' [routerLink]="['./',prasang.id]">
+            <ion-label>
+              <h2>{{ prasang.title }}</h2>
+              <p>{{ prasang.type }}</p>
+            </ion-label>
+          </ion-item> -->
+        </div>
+        <div *ngIf="item.title=='संवाद लेखन '">
+          <ion-card *ngFor='let samvad of samvads' [routerLink]="['./',samvad.id]">
+            <ion-card-title>{{samvad.title}}</ion-card-title>
+            <ion-card-subtitle>{{samvad.type}}</ion-card-subtitle>
+          </ion-card>
+          <!-- <ion-item *ngFor='let samvad of samvads' [routerLink]="['./',samvad.id]">
+            <ion-label>
+              <h2>{{ samvad.title }}</h2>
+              <p>{{ samvad.type }}</p>
+            </ion-label>
+          </ion-item> -->
+        </div>
+        </app-expandable>
+        </ion-card-content>
+        </ion-card>
+
+<!-- <p *ngFor='let boli of bolis'>
+  <b>{{ boli.title }}, </b>{{ boli.type }}
+</p> -->
+
+<!-- <ion-list>
+  <ion-list-header>
+    <h2>निबंध </h2>
+  </ion-list-header>
+  <ion-item *ngFor='let essay of essays' [routerLink]="['./',essay.id]">
+    <ion-label>
+      <h2>{{ essay.title }}</h2>
+      <p>{{ essay.type }}</p>
+    </ion-label>
+  </ion-item>
+</ion-list>
+<ion-list>
+  <ion-list-header>
+    <h2>कथा लेखन </h2>
+  </ion-list-header>
+  <ion-item *ngFor='let story of stories' [routerLink]="['./',story.id]">
+    <ion-label>
+      <h2>{{ story.title }}</h2>
+      <p>{{ story.type }}</p>
+    </ion-label>
+  </ion-item>
+</ion-list>
+<ion-list>
+  <ion-list-header>
+    <h2>पत्रलेखन </h2>
+  </ion-list-header>
+  <ion-item *ngFor='let letter of letters' [routerLink]="['./',letter.id]">
+    <ion-label>
+      <h2>{{ letter.title }}</h2>
+      <p>{{ letter.type }}</p>
+    </ion-label>
+  </ion-item>
+</ion-list>
+<ion-list>
+  <ion-list-header>
+    <h2>प्रसंग  </h2>
+  </ion-list-header>
+  <ion-item *ngFor='let prasang of prasangs' [routerLink]="['./',prasang.id]">
+    <ion-label>
+      <h2>{{ prasang.title }}</h2>
+      <p>{{ prasang.type }}</p>
+    </ion-label>
+  </ion-item>
+</ion-list>
+<ion-list>
+  <ion-list-header>
+    <h2>संवाद लेखन </h2>
+  </ion-list-header>
+  <ion-item *ngFor='let samvad of samvads' [routerLink]="['./',samvad.id]">
+    <ion-label>
+      <h2>{{ samvad.title }}</h2>
+      <p>{{ samvad.type }}</p>
+    </ion-label>
+  </ion-item>
+</ion-list> -->
+
+<ion-toolbar class="stickend" color='light'>
+  <ion-buttons slot="end">
+    <ion-button [routerLink]="['/aboutus']">
+
+      <div class="stcak">      
+        <ion-icon name="heart"></ion-icon>
+        <ion-label>About Us</ion-label>
+      </div>
+
+    </ion-button>
+  </ion-buttons>
+  <ion-buttons slot="start">
+    <ion-button [routerLink]="['/favorite']">
+      <div class="stcak"> 
+        <ion-icon name="bookmarks"></ion-icon>
+        <ion-label>Favorites</ion-label>     
+      </div>
+    </ion-button>
+  </ion-buttons>
+
+    <ion-title>
+      <div class="stcak">
+          <ion-icon name="home"></ion-icon>
+          <ion-label>Home</ion-label>
+
+    </div>
+    </ion-title>
+
+</ion-toolbar>
+
+
 </ion-content>

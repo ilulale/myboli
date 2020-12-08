@@ -1,0 +1,52 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title color='light'>{{ loadedBoli.title }}</ion-title>
+    <ion-buttons slot="start" [routerLink]="['/']">
+      <ion-button>
+        <ion-icon name='arrow-back'></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-buttons slot='end'>
+      <ion-button (click)='toggledFav()'>
+        <ion-icon name='bookmarks'></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <img src="https://images.unsplash.com/photo-1587514342160-aae139aba39d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2850&q=80" />
+    <ion-card-header>
+      <ion-card-subtitle>{{ loadedBoli.type }}</ion-card-subtitle>
+      <ion-card-title>{{ loadedBoli.title }}</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <div class="font-correction" [innerHTML]='loadedBoli.body'>
+      </div>
+    </ion-card-content>
+  </ion-card>
+
+  <!-- <ion-toolbar class="stickend">
+    
+    <ion-buttons slot="end">
+      <ion-button [routerLink]="['/aboutus']">
+        <div class="stcak">      
+          <ion-icon name="heart"></ion-icon>
+          <ion-label>About Us</ion-label>
+        </div>
+    </ion-button>
+    </ion-buttons>
+
+    <ion-buttons slot="start">
+      <ion-button [routerLink]="['/home']">
+        <div class="stcak">      
+          <ion-icon name="home"></ion-icon>
+          <ion-label>Home</ion-label>
+        </div>
+    </ion-button>
+    </ion-buttons>
+  
+  </ion-toolbar> -->
+
+</ion-content>
